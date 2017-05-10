@@ -1,7 +1,9 @@
 .auth-home {
   background-image: url("../../assets/img/auth-background.jpg");
-  background-size: 100%;
-  background-position-y: 50%;
+  background-size: 150% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
 
   .logo {
     height: 50%;
@@ -19,6 +21,10 @@
     margin: auto;
     width: 95%;
     margin-bottom: 5px;
+
+    span {
+      margin-left: 5px;
+    }
   }
 
   .google-btn {

@@ -1,10 +1,38 @@
 <ion-header>
   <ion-navbar primary>
-    <ion-title>Home</ion-title>
+    <ion-title>Lottery Lists</ion-title>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="segmentValue">
+      <ion-segment-button value="tickets">
+        Last Tickets
+      </ion-segment-button>
+      <ion-segment-button value="groups">
+        Groups
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content padding class="home">
+  <div [ngSwitch]="segmentValue">
+    <ion-list *ngSwitchCase="'tickets'">
+      <ion-item *ngFor="let ticket of tickets" >
+        <ion-avatar item-left>
+          <img [src]="ticket.imgUrl">
+        </ion-avatar>
+        <h2>{{ticket.title}}</h2>
+        <p>{{ticket.group}}</p>
+      </ion-item>
+    </ion-list>
 
+    <ion-list *ngSwitchCase="'groups'">
+      <ion-item *ngFor="let group of groups" >
+        <ion-avatar item-left>
+          <img [src]="group.imgUrl">
+        </ion-avatar>
+        <h2>{{group.name}}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
